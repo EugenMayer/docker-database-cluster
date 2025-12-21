@@ -26,7 +26,7 @@ fi
 
 source .env
 NETWORK=database-cluster_dbs
-CMD="docker run --rm --link postgres:$PG_DOMAIN -e PGREQUIRESSL=1 -e PGPASSWORD=${POSTGRES_PASSWORD} -it --network $NETWORK bitnami/postgresql:latest psql -h $PG_DOMAIN -U postgres -c"
+CMD="docker run --rm --link postgres:$PG_DOMAIN -e PGREQUIRESSL=1 -e PGPASSWORD=${POSTGRES_PASSWORD} -it --network $NETWORK postgres:latest psql -h $PG_DOMAIN -U postgres -c"
 
 $CMD "CREATE USER ${USER} WITH LOGIN PASSWORD '${PASSWORD}'"
 $CMD "CREATE DATABASE ${DATABASE}"
