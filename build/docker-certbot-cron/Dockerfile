@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM alpine:latest
 
 RUN apk update && \
     apk add --no-cache docker-cli docker-cli-compose

@@ -1,5 +1,7 @@
 services:
   mariadb-backup:
+    # https://github.com/fradelg/docker-mysql-cron-backup
+    # https://hub.docker.com/r/fradelg/mysql-cron-backup
     image: fradelg/mysql-cron-backup
     networks:
       - dbs

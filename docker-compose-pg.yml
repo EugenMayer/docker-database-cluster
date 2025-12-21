@@ -1,7 +1,7 @@
 services:
   postgres:
     restart: 'always'
-    image: bitnami/postgresql:16-debian-12
+    image: postgres:18-trixie
     container_name: pg
     networks:
       - dbs
@@ -42,7 +42,7 @@ services:
   # handles re-triggering the certbot container using cron
   certbot-pg-cron:
     build: ./build/docker-certbot-cron/
-    image: kontextwork/certbot-cron
+    image: ghcr.io/eugenmayer/certbot-cron
     networks:
       - dbs
     volumes:

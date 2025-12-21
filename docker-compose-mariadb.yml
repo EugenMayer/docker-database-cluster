@@ -1,8 +1,8 @@
 services:
   mariadb:
     restart: 'always'
-    # @see https://hub.docker.com/r/bitnami/mariadb
-    image: bitnami/mariadb:11.8
+    # @see https://hub.docker.com/_/mariadb
+    image: mariadb:12.1
     ports:
       - 3306:3306
     environment:
@@ -41,7 +41,7 @@ services:
   # handles re-triggering the certbot container using cron
   certbot-mariadb-cron:
     build: ./build/docker-certbot-cron/
-    image: kontextwork/certbot-cron
+    image: ghcr.io/eugenmayer/certbot-cron
     networks:
       - dbs
     volumes:
