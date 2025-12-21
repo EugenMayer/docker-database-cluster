@@ -25,7 +25,7 @@ then
 fi
 
 source .env
-NETWORK=$(COMPOSE_PROJECT)_dbs
+NETWORK=${COMPOSE_PROJECT}_dbs
 CMD="docker run --rm --link postgres:$PG_DOMAIN -e PGREQUIRESSL=1 -e PGPASSWORD=${POSTGRES_PASSWORD} -it --network $NETWORK postgres:latest psql -h $PG_DOMAIN -U postgres -c"
 
 $CMD "CREATE USER ${USER} WITH LOGIN PASSWORD '${PASSWORD}'"

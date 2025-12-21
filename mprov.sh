@@ -27,7 +27,7 @@ then
 fi
 
 source .env
-NETWORK=$(COMPOSE_PROJECT)_dbs
+NETWORK=${COMPOSE_PROJECT}_dbs
 CMD="docker run --rm --link mariadb:$MYSQL_DOMAIN -e MYSQL_PWD="${MARIADB_ROOT_PASSWORD}" -it --network $NETWORK mariadb:$MARIADB_TAG mariadb -h $MYSQL_DOMAIN -u root --ssl --ssl-verify-server-cert -e"
 
 if [ "${FORCESSL}" = "yes" ]; then
