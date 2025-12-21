@@ -10,7 +10,7 @@ services:
     depends_on:
       - certbot-mariadb
     volumes:
-      - ./data/mysql:/bitnami/mariadb
+      - ./data/mysql:/var/lib/mysql
       - ./data/mysql_certificates:/etc/mysql/certificates:ro
       - ./mariadb/conf/ssl.cnf:/opt/bitnami/mariadb/conf/my_custom.cnf:ro
     networks:
