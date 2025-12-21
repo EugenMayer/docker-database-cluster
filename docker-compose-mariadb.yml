@@ -40,7 +40,6 @@ services:
       --deploy-hook /usr/local/bin/deploy_mariadb.sh
   # handles re-triggering the certbot container using cron
   certbot-mariadb-cron:
-    build: ./build/docker-certbot-cron/
     image: ghcr.io/eugenmayer/certbot-cron
     networks:
       - dbs

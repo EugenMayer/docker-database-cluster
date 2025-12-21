@@ -41,7 +41,6 @@ services:
       --deploy-hook /usr/local/bin/deploy_pg.sh
   # handles re-triggering the certbot container using cron
   certbot-pg-cron:
-    build: ./build/docker-certbot-cron/
     image: ghcr.io/eugenmayer/certbot-cron
     networks:
       - dbs
