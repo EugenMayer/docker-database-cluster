@@ -22,6 +22,8 @@ services:
   certbot-pg:
     restart: 'no'
     image: certbot/dns-cloudflare
+    networks:
+      - dbs
     environment:
       PG_DOMAIN:
     volumes:
