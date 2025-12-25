@@ -15,7 +15,7 @@ services:
       - certbot-pg
     volumes:
       - ./data/pg:/var/lib/postgresql
-      - ./pg/pg_hba.conf:/bitnami/postgresql/conf/pg_hba.conf:ro
+      - ./pg/pg_hba.conf:/postgresql/conf/pg_hba.conf:ro
       - ./pg/pg.d/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql:ro
       - ./data/pg_certificates:/etc/postgresql/certificates:ro
   # official certbot to retrieve our ssl certificate (stops after retrieval)
