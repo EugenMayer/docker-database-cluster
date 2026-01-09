@@ -17,3 +17,5 @@ services:
       BACKUP_KEEP_DAYS: 3
       BACKUP_KEEP_WEEKS: 2
       BACKUP_KEEP_MONTHS: 2
+      # ensure you set this to the database to backup
+      POSTGRES_DB:
