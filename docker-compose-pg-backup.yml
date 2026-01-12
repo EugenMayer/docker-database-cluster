@@ -1,6 +1,6 @@
 services:
   pg-backup:
-    image: prodrigestivill/postgres-backup-local
+    image: prodrigestivill/postgres-backup-local:18
     restart: always
     volumes:
       - ./data/pg-backups:/backups
