@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
 
-docker compose pull
-docker compose up -d
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+cd $SCRIPT_DIR && docker compose pull
+cd $SCRIPT_DIR && docker compose up -d
