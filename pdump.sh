@@ -6,9 +6,9 @@ set -e
 TARGET_FOLDER=$1
 DBNAME=$2
 
-if [ -z "$TARGET_FOLDER" ]
+if [ -z "$TARGET_FILE" ]
 then
-      echo "Error: Please pass the target_folder to save the dump to as the first parameter"
+      echo "Error: Please pass the target file to save the dump to as the first parameter"
       exit 1
 fi
 
@@ -18,9 +18,9 @@ then
       exit 1
 fi
 
-echo "Saving dump to $TARGET_FOLDER/$DBNAME.sql"
+echo "Saving dump of '$DBNAME' to file: $TARGET_FILE"
 
 source .env
 NETWORK=${COMPOSE_PROJECT}_dbs
 # using -n public to avoid import extensions, see --if-exists
-docker run --rm --link postgres:$PG_DOMAIN -v $TARGET_FOLDER:/tmp/target_folder -e PGREQUIRESSL=1 -e PGSSLMODE=require -e PGPASSWORD=${POSTGRES_PASSWORD} -it --network $NETWORK postgres:latest pg_dump -h $PG_DOMAIN -U postgres -Fc -d $DBNAME > /tmp/target_folder/$DBNAME.sql
+docker run --rm --link postgres:$PG_DOMAIN -e PGREQUIRESSL=1 -e PGSSLMODE=require -e PGPASSWORD=${POSTGRES_PASSWORD} -it --network $NETWORK postgres:latest pg_dump -h $PG_DOMAIN -U postgres -Fc -d $DBNAME > $TARGET_FILE
