@@ -8,13 +8,13 @@ DBNAME=$2
 
 if [ -z "$FILE" ]
 then
-      echo "Error: Please pass the file to import first paramter"
+      echo "Error: Please pass the file to import first parameter"
       exit 1
 fi
 
-if [ -z "FILE" ]
+if [ -z "$DBNAME" ]
 then
-      echo "Error: Please pass the target database name as 2nd paramter"
+      echo "Error: Please pass the target database name as 2nd parameter"
       exit 1
 fi
 
