@@ -3,7 +3,7 @@ set -e
 
 # importing a pg_dump that has been exported using -Fc e.g: `pg_dump -Fc -d mydb > db.dump.sql`
 # also clears the DB before importing
-TARGET_FOLDER=$1
+TARGET_FILE=$1
 DBNAME=$2
 
 if [ -z "$TARGET_FILE" ]
